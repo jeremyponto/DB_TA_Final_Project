@@ -69,7 +69,7 @@ public class Controller1 {
             ResultSet resultSet = statement.executeQuery();
 
             while(resultSet.next()) {
-                if(resultSet.getString("username") == username) {
+                if(resultSet.getString("username").equals(username)) {
                     connection.close();
 
                     Alert a = new Alert(Alert.AlertType.WARNING);

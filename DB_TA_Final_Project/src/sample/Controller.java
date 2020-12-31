@@ -42,7 +42,7 @@ public class Controller {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                if (resultSet.getString("username") == username && resultSet.getString("password") == password) {
+                if (resultSet.getString("username").equals(username) && resultSet.getString("password").equals(password)) {
                     connection.close();
 
                     Stage primaryStage;
