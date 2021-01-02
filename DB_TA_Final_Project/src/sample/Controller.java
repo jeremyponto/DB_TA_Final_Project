@@ -18,7 +18,7 @@ public class Controller {
     public TextField tfUsername;
     public PasswordField pfPassword;
     public Button btnSignIn, btnSignUp;
-    public static String userLogged  = "";
+    public static String userLogged = "";
 
 
     public void signIn() throws Exception {
