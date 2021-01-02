@@ -18,6 +18,8 @@ public class Controller {
     public TextField tfUsername;
     public PasswordField pfPassword;
     public Button btnSignIn, btnSignUp;
+    public static String userLogged  = "";
+
 
     public void signIn() throws Exception {
         String username = tfUsername.getText();
@@ -43,7 +45,8 @@ public class Controller {
 
             while (resultSet.next()) {
                 if (resultSet.getString("username").equals(username) && resultSet.getString("password").equals(password)) {
-                    connection.close();
+
+                    this.userLogged = username;
 
                     Stage primaryStage;
                     Parent root;
@@ -53,6 +56,10 @@ public class Controller {
 
                     primaryStage.setScene(new Scene(root));
                     primaryStage.show();
+
+                    connection.close();
+
+                    userLogged = tfUsername.getText();
 
                     return;
                 }
@@ -65,6 +72,7 @@ public class Controller {
             a.show();
         }
     }
+
 
     public void signUp() throws Exception {
         Stage primaryStage;
