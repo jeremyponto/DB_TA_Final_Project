@@ -2,7 +2,10 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
@@ -15,7 +18,7 @@ import java.util.ResourceBundle;
 public class Controller3 implements Initializable {
     public TableView userRatingsTableView;
     public TextField reviewTextField, ratingTextField;
-    public Button saveButton;
+    public Button saveButton, btnBack;
     public Text movieTitleText, movieRatingText;
     public Controller userNameLogged = new Controller();
     public Controller2 selectedMovieInfo = new Controller2();
@@ -175,10 +178,17 @@ public class Controller3 implements Initializable {
         userRatingsTableView.setItems(userReviews);
         userRatingsTableView.getColumns().addAll(userName, description, rating);
 
+    }
 
+    public void back() throws Exception
+    {
+        Stage primaryStage;
+        Parent root;
 
+        primaryStage = (Stage) btnBack.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("sample2.fxml"));
 
-
-
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 }
