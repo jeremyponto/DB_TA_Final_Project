@@ -46,6 +46,8 @@ public class Controller2 implements Initializable {
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSetMovies = statement.executeQuery();
 
+            movies.clear();
+
             while (resultSetMovies.next())
             {
                 movies.add(new Movie(resultSetMovies.getString("movie_title"), resultSetMovies.getDouble("rating")));
