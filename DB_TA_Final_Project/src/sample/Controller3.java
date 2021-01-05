@@ -53,7 +53,7 @@ public class Controller3 implements Initializable {
     }
 
 
-    public void saveButtonClicked() throws SQLException {
+    public void saveButtonClicked() throws Exception {
         if(reviewTextField.getText().isEmpty() && ratingTextField.getText().isEmpty())
         {
             Alert a =  new Alert(Alert.AlertType.WARNING);
@@ -87,6 +87,15 @@ public class Controller3 implements Initializable {
                 a.setContentText("Please Fill Numbers Only in Rating field!");
                 a.show();
 
+            }
+            else if(reviewTextField.getText().length() > 500)
+            {
+                reviewTextField.clear();
+                Alert a = new Alert(Alert.AlertType.WARNING);
+
+                a.setTitle("Warning!");
+                a.setContentText("Review Cannot be More Than 500 Characters!");
+                a.show();
             }
             else
             {
@@ -124,8 +133,15 @@ public class Controller3 implements Initializable {
                     Integer updateRatingStatus = statement1.executeUpdate();
                     if (updateRatingStatus > 0) {
                         System.out.println("Success update rating");
-                        Stage stage = (Stage) saveButton.getScene().getWindow();
-                        stage.close();
+
+                        Stage primaryStage;
+                        Parent root;
+
+                        primaryStage = (Stage) saveButton.getScene().getWindow();
+                        root = FXMLLoader.load(getClass().getResource("sample3.fxml"));
+
+                        primaryStage.setScene(new Scene(root));
+                        primaryStage.show();
                     }
                     connection.close();
                 }catch (SQLException e)
