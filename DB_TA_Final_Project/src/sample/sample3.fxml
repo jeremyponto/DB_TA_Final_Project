@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller3">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller3">
    <children>
       <HBox prefHeight="42.0" prefWidth="600.0">
          <children>
@@ -20,7 +20,7 @@
       </HBox>
       <HBox prefHeight="34.0" prefWidth="600.0">
          <children>
-            <Label text="Movie Name :">
+            <Label text="Movie name:">
                <HBox.margin>
                   <Insets top="10.0" />
                </HBox.margin>
@@ -30,14 +30,14 @@
             </Label>
             <Text fx:id="movieTitleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets left="5.0" top="10.0" />
                </HBox.margin>
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
             <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Label text="Rating : ">
+            <Label text="Rating: ">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
@@ -70,7 +70,7 @@
          <children>
             <HBox prefHeight="10.0" prefWidth="600.0">
                <children>
-                  <Label text="Review :">
+                  <Label text="Review:">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -80,18 +80,18 @@
                   </Label>
                </children>
             </HBox>
-            <TextField fx:id="reviewTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="72.0" prefWidth="579.0" promptText="Enter Comment Here....">
+            <TextField fx:id="reviewTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="72.0" prefWidth="579.0" promptText="Enter Comment Here.... (Maximum 500 characters)">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" />
                </VBox.margin></TextField>
             <HBox prefHeight="38.0" prefWidth="600.0">
                <children>
-                  <Label text="Rating :">
+                  <Label text="Rating:">
                      <font>
                         <Font size="15.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="12.0" />
                      </HBox.margin>
                   </Label>
                   <TextField fx:id="ratingTextField" promptText="rate us from (1-5)">
