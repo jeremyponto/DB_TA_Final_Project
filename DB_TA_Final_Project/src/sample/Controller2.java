@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +25,7 @@ public class Controller2 implements Initializable {
 
     public TableView movieListTableView;
     public Text userNameLoggedInText;
+    public Button btnSignOut;
 
     static ObservableList<Movie> movies = FXCollections.observableArrayList();
     static ObservableList<Movie> movieSelected = FXCollections.observableArrayList();
@@ -101,5 +103,17 @@ public class Controller2 implements Initializable {
                 }
             }
         });
+    }
+
+    public void signOut() throws Exception
+    {
+        Stage primaryStage;
+        Parent root;
+
+        primaryStage = (Stage) btnSignOut.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 }
