@@ -25,7 +25,7 @@ public class Controller3 implements Initializable {
 
     ObservableList<Review> userReviews = FXCollections.observableArrayList();
 
-    public void populateUserRatingsTableView(String movieNameSelected, Double movieRatingSelected){
+    public void populateUserRatingsTableView(String movieNameSelected) {
         String databaseURL = "jdbc:mysql://remotemysql.com:3306/TI0enjmMEx";
         String connectionUsername = "TI0enjmMEx";
         String connectionPassword = "ntxt2lAnne";
@@ -40,16 +40,36 @@ public class Controller3 implements Initializable {
 
             ResultSet resultSetReviews = statement.executeQuery();
 
+
             while (resultSetReviews.next())
             {
                 userReviews.add(new Review(resultSetReviews.getString("username"), resultSetReviews.getString("description"), resultSetReviews.getDouble("rating")));
             }
-            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         movieTitleText.setText(movieNameSelected);
-        movieRatingText.setText(String.valueOf(movieRatingSelected));
+
+        try {
+            String selectNewRating = "SELECT rating FROM Movies WHERE movie_title = ? ";
+            PreparedStatement statement2 = connection.prepareStatement(selectNewRating);
+
+            statement2.setString(1, movieTitleText.getText());
+
+            ResultSet rsNewRating = statement2.executeQuery();
+            Double newRating = 0.0;
+
+            while (rsNewRating.next()) {
+                newRating = rsNewRating.getDouble("rating");
+            }
+
+            movieRatingText.setText(String.valueOf(newRating));
+            connection.close();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 
 
@@ -137,6 +157,7 @@ public class Controller3 implements Initializable {
                         Stage primaryStage;
                         Parent root;
 
+
                         primaryStage = (Stage) saveButton.getScene().getWindow();
                         root = FXMLLoader.load(getClass().getResource("sample3.fxml"));
 
@@ -175,7 +196,7 @@ public class Controller3 implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        this.populateUserRatingsTableView(selectedMovieInfo.movieSelected.get(0).getMovieTitle(), selectedMovieInfo.movieSelected.get(0).getRatings());
+        this.populateUserRatingsTableView(selectedMovieInfo.movieSelected.get(0).getMovieTitle());
 
         TableColumn userName = new TableColumn("Username");
         userName.setMinWidth(200);
