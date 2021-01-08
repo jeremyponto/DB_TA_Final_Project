@@ -7,19 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$USER_HOME$/Downloads/mysql-connector-java-5.1.49/mysql-connector-java-5.1.49" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$USER_HOME$/Downloads/mysql-connector-java-5.1.49/mysql-connector-java-5.1.49/mysql-connector-java-5.1.49/src" />
-          <root url="file://$USER_HOME$/Downloads/mysql-connector-java-5.1.49/mysql-connector-java-5.1.49/src" />
-        </SOURCES>
-        <jarDirectory url="file://$USER_HOME$/Downloads/mysql-connector-java-5.1.49/mysql-connector-java-5.1.49" recursive="false" />
-      </library>
-    </orderEntry>
     <orderEntry type="library" exported="" name="mysql-connector-java-5.1" level="project" />
   </component>
 </module>
